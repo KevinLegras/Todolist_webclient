@@ -1,0 +1,13 @@
+<h1>Liste de choses à faire PWA - TP3  (debug)</h1>
+<form (ngSubmit)="add(newLabel.value)">
+    <input #newLabel>
+</form>
+    <ul *ngIf="obs|async as listItem">
+        <li *ngFor="let item of listItem.items">
+            <input type="checkbox" [ngModel]="item.isDone" (ngModelChange)='update({isDone:$event},item)'>
+            <form (ngSubmit)='update({label:newLabelItem.value},item)'>
+                <input type="text" name="newLabelItem" #newLabelItem [ngModel]="item.label">     
+            </form>
+            <button (click) = "delete(item)" >Delete</button>
+        </li>
+    </ul>

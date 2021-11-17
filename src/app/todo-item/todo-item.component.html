@@ -1,0 +1,9 @@
+<div class="view">
+    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone"/>
+    <label class="texte" ngDefaultControl>{{item.label}}</label>
+    <button class="destroy"> </button>
+</div>
+
+<form (ngSubmit)="update({label:newTextInput.value},item)">
+    <input #newTextInput name="newTextInput" class="edit" [ngModel]="item.label"/>
+</form>
