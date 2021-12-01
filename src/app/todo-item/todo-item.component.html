@@ -1,7 +1,7 @@
 <div class="view">
-    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone"/>
+    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="update({isDone:$event},item)"/>
     <label class="texte" ngDefaultControl>{{item.label}}</label>
-    <button class="destroy"> </button>
+    <button class="destroy" (click)="delete(item)"></button>
 </div>
 
 <form (ngSubmit)="update({label:newTextInput.value},item)">

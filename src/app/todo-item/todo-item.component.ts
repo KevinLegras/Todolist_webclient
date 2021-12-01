@@ -10,7 +10,7 @@ import { TodoItem, TodoList, TodolistService } from '../todolist.service';
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input() item?: TodoItem;
+  @Input() item!: TodoItem;
   @Output() updateTodoItem = new EventEmitter<Partial<TodoItem>>();
   @Output() removetodoItem = new EventEmitter<TodoItem>();
 
@@ -26,9 +26,14 @@ export class TodoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  update(event:any,item: any){
-    this.service = this.service.update(event,item);
+  update(todoitem:Partial<TodoItem>,item: TodoItem){
+    this.service = this.service.update(todoitem,item);
   }
+
+  delete(item:TodoItem){
+    this.service = this.service.remove(item);
+  }
+
 
   
 
