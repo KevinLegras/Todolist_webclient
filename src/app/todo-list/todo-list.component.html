@@ -11,17 +11,16 @@
       <input  class="toggle-all" type="checkbox" [ngModel]="toggleAll(listItem.items)" name="toggleAll"/>
       <label for="toggleAll" (click)="toggleAllChange(listItem.items)" >Mark all as complete</label>
       <ul class="todo-list">
-        <li *ngFor="let item of getItems(listItem.items)" 
-          [class.completed]="monItem.isCompleted" 
-          [class.editing]="monItem.isEditing">
-                    
+        <li *ngFor="let item of getItems(listItem.items);trackBy:trackById" 
+          [class.completed]="item.isDone" 
+          [class.editing]="monItem.isEditing" 
+          trackBy="trackById">
           <app-todo-item 
             [item]='item' 
             (removetodoItem)="delete(item)"
             (updateTodoItem)="update($event,item)"
-            #monItem >
+            #monItem>
           </app-todo-item>
-
         </li>
       </ul>
     </section>

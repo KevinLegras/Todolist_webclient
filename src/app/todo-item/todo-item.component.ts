@@ -31,6 +31,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   get isEditing():boolean{
+    console.log('edit : ' + this.editmode);
     return this.editmode;
   }  
   set isEditing(value: boolean) {
@@ -42,12 +43,7 @@ export class TodoItemComponent implements OnInit {
     }
   }
 
-  get isCompleted():boolean{
-    return this.completed;
-  }
-  set isCompleted(value:boolean){
-    this.completed = value;
-  }
+
 
 
 

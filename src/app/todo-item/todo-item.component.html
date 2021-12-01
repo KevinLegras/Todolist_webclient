@@ -1,5 +1,5 @@
 <div class="view" (dblclick)="isEditing = true" >
-    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="updateTodoItem.emit({isDone:$event})"/>
+    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="updateTodoItem.emit({isDone:$event});"/>
     <label class="texte" ngDefaultControl>{{item.label}}</label>
     <button class="destroy" (click)="removetodoItem.emit(item)"></button>
 </div>

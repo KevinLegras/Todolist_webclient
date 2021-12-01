@@ -59,4 +59,8 @@ export class TodoListComponent implements OnInit {
   toggleAll(listItem:any): boolean {
     return listItem.reduce((nbitem: any, item: { isDone: any; }) => nbitem && item.isDone, true);
   }
+
+  trackById(_index:number,item:TodoItem):number{
+    return item.id;
+  }
 }
