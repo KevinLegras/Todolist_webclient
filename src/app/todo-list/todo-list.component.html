@@ -8,11 +8,20 @@
       </form>
     </header>
     <section class="main">
-      <input  class="toggle-all" type="checkbox" (click)="toggleAllChange(listItem.items)" [ngModel]="toggleAll(listItem.items)" name="toggleAll"/>
-      <label for="toggleAll">Mark all as complete</label>
+      <input  class="toggle-all" type="checkbox" [ngModel]="toggleAll(listItem.items)" name="toggleAll"/>
+      <label for="toggleAll" (click)="toggleAllChange(listItem.items)" >Mark all as complete</label>
       <ul class="todo-list">
-        <li *ngFor="let item of getItems(listItem.items)" (dblclick)="EnabledEditing($event,item)">
-          <app-todo-item [item]='item'></app-todo-item>
+        <li *ngFor="let item of getItems(listItem.items)" 
+          [class.completed]="monItem.isCompleted" 
+          [class.editing]="monItem.isEditing">
+                    
+          <app-todo-item 
+            [item]='item' 
+            (removetodoItem)="delete(item)"
+            (updateTodoItem)="update($event,item)"
+            #monItem >
+          </app-todo-item>
+
         </li>
       </ul>
     </section>

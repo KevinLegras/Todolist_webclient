@@ -28,16 +28,12 @@ export class TodoListComponent implements OnInit {
     this.service = this.service.append(newtodo);
   }
 
-  EnabledEditing(event:any,item:TodoItem):void{
-    var element = event.target.closest("li");
-    element.classList.add("editing");
-    var input = element.querySelector(".edit");
-    input.focus();
-    let service = this.service;
-    input.addEventListener("focusout",function(event:Event){
-      service = service.update({label:input.value},item);
-      element.classList.remove("editing");
-    });
+  delete(item:TodoItem){
+    this.service = this.service.remove(item);
+  }
+
+  update(todoitem:Partial<TodoItem>,item: TodoItem){
+    this.service = this.service.update(todoitem,item);
   }
 
   nbElementLeft(listItem:any):number{
@@ -56,9 +52,8 @@ export class TodoListComponent implements OnInit {
   }
 
   toggleAllChange(listItem:any) {
-    console.log('test');
-    /*const check = !this.toggleAll(listItem);
-    listItem.forEach((item: { isDone: boolean; }) => item.isDone = check);*/
+    let valuecheck = !this.toggleAll(listItem);
+    listItem.forEach((item: TodoItem)=> this.service.update({isDone:valuecheck},item));
   }
 
   toggleAll(listItem:any): boolean {

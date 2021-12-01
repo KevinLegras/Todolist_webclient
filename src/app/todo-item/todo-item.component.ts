@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output, Input, ViewChild, ElementRef} from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
 
@@ -13,29 +13,41 @@ export class TodoItemComponent implements OnInit {
   @Input() item!: TodoItem;
   @Output() updateTodoItem = new EventEmitter<Partial<TodoItem>>();
   @Output() removetodoItem = new EventEmitter<TodoItem>();
-
-
+  @ViewChild('newTextInput') newTextInput!: ElementRef<HTMLInputElement>;
+  
   service: TodolistService;
   obs: Observable<TodoList>;
+  private editmode:boolean;
+  private completed:boolean;
 
   constructor(todolist:TodolistService) {
     this.service = todolist;
     this.obs = todolist.observable;
+    this.editmode = false;
+    this.completed = false;
    }
 
   ngOnInit(): void {
   }
 
-  update(todoitem:Partial<TodoItem>,item: TodoItem){
-    this.service = this.service.update(todoitem,item);
+  get isEditing():boolean{
+    return this.editmode;
+  }  
+  set isEditing(value: boolean) {
+    this.editmode = value;
+    if (value) {
+      requestAnimationFrame(
+        () => this.newTextInput.nativeElement.focus()
+      );
+    }
   }
 
-  delete(item:TodoItem){
-    this.service = this.service.remove(item);
+  get isCompleted():boolean{
+    return this.completed;
   }
-
-
-  
+  set isCompleted(value:boolean){
+    this.completed = value;
+  }
 
 
 

@@ -1,9 +1,9 @@
-<div class="view">
-    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="update({isDone:$event},item)"/>
+<div class="view" (dblclick)="isEditing = true" >
+    <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="updateTodoItem.emit({isDone:$event})"/>
     <label class="texte" ngDefaultControl>{{item.label}}</label>
-    <button class="destroy" (click)="delete(item)"></button>
+    <button class="destroy" (click)="removetodoItem.emit(item)"></button>
 </div>
 
-<form (ngSubmit)="update({label:newTextInput.value},item)">
-    <input #newTextInput name="newTextInput" class="edit" [ngModel]="item.label"/>
+<form (ngSubmit)="updateTodoItem.emit({label:newTextInput.value})">
+    <input #newTextInput name="newTextInput" class="edit newTextInput" [ngModel]="item.label" (blur)="updateTodoItem.emit({label:newTextInput.value}) ; isEditing = false"/>
 </form>
