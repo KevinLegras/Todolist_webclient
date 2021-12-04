@@ -2,24 +2,29 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
+import { VoiceRecognitionService } from '../voice-recognition-service/voice-recognition.service'
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
+  providers: [VoiceRecognitionService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
 
   service: TodolistService;
   obs: Observable<TodoList>;
+  voiceRecognitionService : VoiceRecognitionService;
   filter: string;
 
 
-  constructor(todolist:TodolistService) {
+  constructor(todolist:TodolistService,voiceRecognition:VoiceRecognitionService) {
     this.service = todolist;
     this.obs = todolist.observable;
     this.filter = 'all';
+    this.voiceRecognitionService = voiceRecognition;
+    this.voiceRecognitionService.init();
    }
 
   ngOnInit(): void {
@@ -76,6 +81,14 @@ export class TodoListComponent implements OnInit {
   
   deleteAll(listItem:any){
     listItem.forEach((item:TodoItem) => { this.delete(item) });
+  }
+
+  startVoiceRecognition(){
+    this.voiceRecognitionService.start();
+  }
+
+  stopVoiceRecognition(){
+    this.voiceRecognitionService.stop();
   }
 
 }
