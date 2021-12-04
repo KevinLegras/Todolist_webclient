@@ -63,4 +63,13 @@ export class TodoListComponent implements OnInit {
   trackById(_index:number,item:TodoItem):number{
     return item.id;
   }
+
+  undoRedo(value:string){
+    if(value == "Undo"){
+      this.service.undo();
+    }
+    else{
+      this.service.redo();
+    }
+  }
 }
