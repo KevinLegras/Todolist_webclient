@@ -18,20 +18,17 @@ export class TodoItemComponent implements OnInit {
   service: TodolistService;
   obs: Observable<TodoList>;
   private editmode:boolean;
-  private completed:boolean;
 
   constructor(todolist:TodolistService) {
     this.service = todolist;
     this.obs = todolist.observable;
     this.editmode = false;
-    this.completed = false;
    }
 
   ngOnInit(): void {
   }
 
   get isEditing():boolean{
-    console.log('edit : ' + this.editmode);
     return this.editmode;
   }  
   set isEditing(value: boolean) {

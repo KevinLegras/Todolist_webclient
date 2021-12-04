@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
 
 @Component({
@@ -71,5 +72,9 @@ export class TodoListComponent implements OnInit {
     else{
       this.service.redo();
     }
+  }  
+  
+  deleteAll(listItem:any){
+    listItem.forEach((item:TodoItem) => { this.delete(item) });
   }
 }

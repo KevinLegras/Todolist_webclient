@@ -5,7 +5,7 @@
       </h1> 
       <div class="divheader">
         <i (click)="undoRedo('Undo')" class="undo fas fa-undo-alt fa-lg"></i>
-        <button click="deleteAll()" class="deleteAll">Tous supprimer</button>
+        <button (click)="deleteAll(listItem.items)" class="deleteAll">Tous supprimer</button>
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
       <form (ngSubmit)="add(lab.value)">
