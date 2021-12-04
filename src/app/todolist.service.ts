@@ -18,7 +18,7 @@ let idItem = 0;
   providedIn: 'root'
 })
 export class TodolistService {
-  private current: TodoList = {label: 'MIAGE', items: [] };
+  private current: TodoList = {label: 'TODOLIST', items: [] };
   private subj = new BehaviorSubject<TodoList>(this.current);
   readonly observable = this.subj.asObservable();
   private previous: TodoList[] = [];
