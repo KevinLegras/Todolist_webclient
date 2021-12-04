@@ -5,11 +5,19 @@
       </h1> 
       <div class="divheader">
         <i (click)="undoRedo('Undo')" class="undo fas fa-undo-alt fa-lg"></i>
-        <button (click)="deleteAll(listItem.items)" class="deleteAll">Tous supprimer</button>
+        <i (click)="deleteAll(listItem.items)" class="fas fa-trash-alt fa-lg deleteAll"></i>
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
       <form (ngSubmit)="add(newTodoInput.value)">
         <input name="newTodoInput" class="new-todo" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
+        <i 
+        [ngClass]="{
+          'isListening': voiceRecognitionService.isListening,
+          'isNotListening': !voiceRecognitionService.isListening
+        }"
+        (click)="VoiceRecognition()" 
+        class="fas fa-microphone fa-lg microstart">
+      </i>
       </form>
      
     </header>
@@ -47,4 +55,7 @@
     </footer>
   </section>
 
-  <i (click)="VoiceRecognition()" class="fas fa-microphone fa-lg microstart"></i>
+  
+ 
+
+

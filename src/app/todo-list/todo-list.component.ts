@@ -85,6 +85,7 @@ export class TodoListComponent implements OnInit {
 
   VoiceRecognition(){
     if(!this.voiceRecognitionService.isListening){
+      this.voiceRecognitionService.text = "";
       this.voiceRecognitionService.start();
     }
     else{

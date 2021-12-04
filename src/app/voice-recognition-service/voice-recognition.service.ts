@@ -36,7 +36,7 @@ export class VoiceRecognitionService {
     this.recognition.start();
     this.recognition.addEventListener('end', () => {
       if (this.isStoppedSpeechRecog ) {
-        this.stop();
+        this.recognition.stop();
       }
       else{
         this.wordConcat();
