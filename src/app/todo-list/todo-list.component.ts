@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
@@ -12,9 +12,6 @@ import { VoiceRecognitionService } from '../voice-recognition-service/voice-reco
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
-
-  @ViewChild('newTextInput') newTextInput!: ElementRef<HTMLInputElement>;
-
 
   service: TodolistService;
   obs: Observable<TodoList>;
@@ -92,6 +89,7 @@ export class TodoListComponent implements OnInit {
     }
     else{
       this.voiceRecognitionService.stop();
+      this.service = this.service.append(this.voiceRecognitionService.text);
     }
   }
 

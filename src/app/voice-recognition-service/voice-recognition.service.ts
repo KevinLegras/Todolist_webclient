@@ -27,7 +27,6 @@ export class VoiceRecognitionService {
         .map((result) => result.transcript)
         .join('');
       this.tempWords = transcript;
-      console.log(transcript);
     });
   }
 
@@ -36,13 +35,12 @@ export class VoiceRecognitionService {
     this.isStoppedSpeechRecog = false;
     this.recognition.start();
     this.recognition.addEventListener('end', () => {
-      if (this.isStoppedSpeechRecog || this.tempWords == "") {
-        this.recognition.stop();
-        this.isListening = false;
+      if (this.isStoppedSpeechRecog ) {
+        this.stop();
       }
       else{
-        this.recognition.stop();
         this.wordConcat();
+        this.recognition.stop();
         this.recognition.start();
       }
     });
