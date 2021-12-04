@@ -66,10 +66,10 @@ export class TodoListComponent implements OnInit {
   }
 
   undoRedo(value:string){
-    if(value == "Undo"){
+    if(value == "Undo") {
       this.service.undo();
     }
-    else{
+    else {
       this.service.redo();
     }
   }  
@@ -77,4 +77,5 @@ export class TodoListComponent implements OnInit {
   deleteAll(listItem:any){
     listItem.forEach((item:TodoItem) => { this.delete(item) });
   }
+
 }
