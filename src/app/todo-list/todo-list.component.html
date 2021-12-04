@@ -8,9 +8,10 @@
         <button (click)="deleteAll(listItem.items)" class="deleteAll">Tous supprimer</button>
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
-      <form (ngSubmit)="add(lab.value)">
-        <input name="newTodoInput" class="new-todo" placeholder="Que faire?" autofocus #lab/>
+      <form (ngSubmit)="add(newTodoInput.value)">
+        <input name="newTodoInput" class="new-todo" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
       </form>
+     
     </header>
     <section class="main">
       <input  class="toggle-all" type="checkbox" [ngModel]="toggleAll(listItem.items)" name="toggleAll"/>
@@ -46,6 +47,4 @@
     </footer>
   </section>
 
-  <app-speech-to-text></app-speech-to-text>
-
-
+  <i (click)="VoiceRecognition()" class="fas fa-microphone fa-lg microstart"></i>

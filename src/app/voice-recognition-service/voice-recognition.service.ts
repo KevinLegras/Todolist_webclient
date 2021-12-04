@@ -8,8 +8,9 @@ declare var webkitSpeechRecognition: any;
 })
 export class VoiceRecognitionService {
 
- recognition =  new webkitSpeechRecognition();
+  recognition =  new webkitSpeechRecognition();
   isStoppedSpeechRecog = false;
+  isListening = false; 
   public text = '';
   tempWords = "";
 
@@ -31,28 +32,30 @@ export class VoiceRecognitionService {
   }
 
   start() {
+    this.isListening = true;
     this.isStoppedSpeechRecog = false;
     this.recognition.start();
-    console.log("Speech recognition started")
     this.recognition.addEventListener('end', () => {
-      if (this.isStoppedSpeechRecog) {
+      if (this.isStoppedSpeechRecog || this.tempWords == "") {
         this.recognition.stop();
-        console.log("End speech recognition")
-      } else {
-        this.wordConcat()
+        this.isListening = false;
+      }
+      else{
+        this.recognition.stop();
+        this.wordConcat();
         this.recognition.start();
       }
     });
   }
   stop() {
+    this.isListening = false;
     this.isStoppedSpeechRecog = true;
-    this.wordConcat()
+    this.wordConcat();
     this.recognition.stop();
-    console.log("End speech recognition")
   }
 
   wordConcat() {
-    this.text = this.text + ' ' + this.tempWords + '.';
+    this.text = this.text + ' ' + this.tempWords;
     this.tempWords = '';
   }
 }
