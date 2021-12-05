@@ -2,7 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
-import { VoiceRecognitionService } from '../voice-recognition-service/voice-recognition.service'
+import { VoiceRecognitionService } from '../voice-recognition-service/voice-recognition.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todo-list',
@@ -39,6 +40,8 @@ export class TodoListComponent implements OnInit {
   }
 
   update(todoitem:Partial<TodoItem>,item: TodoItem){
+    console.log(item);
+    console.log(todoitem);
     this.service = this.service.update(todoitem,item);
   }
 
@@ -92,6 +95,14 @@ export class TodoListComponent implements OnInit {
       this.voiceRecognitionService.stop();
       this.service = this.service.append(this.voiceRecognitionService.text);
     }
+  }
+
+  onDrop(event: CdkDragDrop<TodoItem []>){
+    moveItemInArray(
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 
 }
