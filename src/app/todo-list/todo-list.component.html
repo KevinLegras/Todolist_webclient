@@ -8,8 +8,9 @@
         <i (click)="deleteAll(listItem.items)" class="fas fa-trash-alt fa-lg deleteAll"></i>
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
-      <form (ngSubmit)="add(newTodoInput.value)">
-        <input name="newTodoInput" class="new-todo" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
+      <form>
+        <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value,datepickerselect.dateSelect)" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
+        <app-date-picker  #datepickerselect class="app-date-picker"></app-date-picker>
         <i 
         [ngClass]="{
           'isListening': voiceRecognitionService.isListening,

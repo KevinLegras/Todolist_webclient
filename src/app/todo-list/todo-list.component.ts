@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
@@ -19,7 +19,6 @@ export class TodoListComponent implements OnInit {
   voiceRecognitionService : VoiceRecognitionService;
   filter: string;
 
-
   constructor(todolist:TodolistService,voiceRecognition:VoiceRecognitionService) {
     this.service = todolist;
     this.obs = todolist.observable;
@@ -31,8 +30,9 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(newtodo:any):void{
-    this.service = this.service.append(newtodo);
+  add(newtodo:string,date:string):void{
+    console.log(date);
+    //this.service = this.service.append(newtodo);
   }
 
   delete(item:TodoItem){

@@ -53,7 +53,8 @@ export class VoiceRecognitionService {
   }
 
   wordConcat() {
-    this.text = this.text + ' ' + this.tempWords;
+    let textwithspace = this.text + ' ' + this.tempWords;
+    this.text = textwithspace.trim();
     this.tempWords = '';
   }
 }
