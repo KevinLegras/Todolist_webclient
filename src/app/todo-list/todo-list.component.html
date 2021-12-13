@@ -10,7 +10,7 @@
       </div>
       <form>
         <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value)" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
-        <app-date-picker (selectedDateChange)="testfonc($event)" #datepickerselect class="app-date-picker"></app-date-picker>
+        <app-date-picker (dateselected)="saveDate($event)" #datepickerselect class="app-date-picker"></app-date-picker>
         <i 
         [ngClass]="{
           'isListening': voiceRecognitionService.isListening,

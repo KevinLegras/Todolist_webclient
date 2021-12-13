@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
 import { VoiceRecognitionService } from '../voice-recognition-service/voice-recognition.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -19,6 +18,7 @@ export class TodoListComponent implements OnInit {
   obs: Observable<TodoList>;
   voiceRecognitionService : VoiceRecognitionService;
   filter: string;
+  datesave:any;
 
   constructor(todolist:TodolistService,voiceRecognition:VoiceRecognitionService) {
     this.service = todolist;
@@ -31,9 +31,12 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(newtodo:string,):void{
-    console.log(newtodo);
-    //this.service = this.service.append(newtodo);
+  add(newtodo:string):void{
+    if(this.datesave == null){
+      this.datesave = "kevin";
+    }
+    let test = "{"+ newtodo +",date:"+ this.datesave +"}";
+    this.service = this.service.append(test);
   }
 
   delete(item:TodoItem){
@@ -106,8 +109,8 @@ export class TodoListComponent implements OnInit {
     );
   }
 
-  testfonc(event:any){
-    console.log('test');
+  saveDate(date:MatDatepickerInputEvent<any,any>):void{
+    console.log(date.value);
+    this.datesave=date.value;
   }
-
 }

@@ -1,6 +1,7 @@
 <div class="view" (dblclick)="isEditing = true" >
     <input class="toggle" type="checkbox" name="done" [ngModel]="item.isDone" (ngModelChange)="updateTodoItem.emit({isDone:$event});"/>
     <label class="texte" ngDefaultControl>{{item.label}}</label>
+    <app-date-picker (dateselected)="updateTodoItem.emit({date:$event.value})" #datepickerselect class="app-date-picker"></app-date-picker>
     <button class="destroy" (click)="removetodoItem.emit(item)"></button>
 </div>
 

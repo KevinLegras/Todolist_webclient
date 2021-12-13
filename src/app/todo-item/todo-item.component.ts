@@ -39,9 +39,4 @@ export class TodoItemComponent implements OnInit {
       );
     }
   }
-
-
-
-
-
 }
