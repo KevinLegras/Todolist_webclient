@@ -5,7 +5,7 @@ export interface TodoItem {
   readonly label: string;
   readonly isDone: boolean;
   readonly id: number;
-  readonly date: string;
+  readonly date: Date | null;
 }
 
 export interface TodoList {
@@ -31,17 +31,39 @@ export class TodolistService {
   }
 
   append(...labels: Readonly<string[]>): this {
+    console.log(...labels)
     const L: TodoList = this.subj.getValue();
-    console.log(labels);
     this.subj.next( {
       ...L,
       items: [
         ...L.items,
         ...labels.filter( l => l !== '').map(
-            label => ({label, isDone: false, id: idItem++,date:labels[1]})
+            label => ({label, isDone: false, id: idItem++, date:null})
           )
       ]
     } );
+    return this;
+  }
+
+
+  appendWithDate(date:Date,...labels: Readonly<string[]>): this {
+    const L: TodoList = this.subj.getValue();
+    this.subj.next( {
+      ...L,
+      items: [
+        ...L.items,
+        ...labels.filter( l => l !== '').map(
+            label => ({label, isDone: false, id: idItem++, date:date})
+          )
+      ]
+    } );
+    return this;
+  }
+
+  newIndex(items:Readonly<TodoItem[]>){
+    const L = this.subj.getValue();
+    const NL = {...L, items: items};
+    this.subj.next( NL );
     return this;
   }
 

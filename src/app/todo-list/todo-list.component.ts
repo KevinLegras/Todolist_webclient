@@ -32,11 +32,13 @@ export class TodoListComponent implements OnInit {
   }
 
   add(newtodo:string):void{
-    if(this.datesave == null){
-      this.datesave = "kevin";
+    if(this.datesave == undefined){
+      this.service = this.service.append(newtodo);
     }
-    let test = "{"+ newtodo +",date:"+ this.datesave +"}";
-    this.service = this.service.append(test);
+    else{
+      this.service = this.service.appendWithDate(this.datesave,newtodo);
+    }
+    this.datesave = undefined;
   }
 
   delete(item:TodoItem){
@@ -107,6 +109,7 @@ export class TodoListComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
+    this.service.newIndex(event.container.data);
   }
 
   saveDate(date:MatDatepickerInputEvent<any,any>):void{
