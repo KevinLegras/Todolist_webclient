@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { Observable } from 'rxjs';
+import { TodoList, TodolistService } from '../todolist.service';
 
 @Component({
   selector: 'app-date-picker',
@@ -8,24 +11,25 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } fro
 })
 export class DatePickerComponent implements OnInit {
 
-  @ViewChild('test', {static: true}) inputdate: ElementRef;
+  @Output() selectedDateChange = new EventEmitter<Date>();;
+
+  service: TodolistService;
+  obs: Observable<TodoList>;
   startdate:Date;
 
-  constructor(inputdate:ElementRef) {
+  constructor(todolist:TodolistService) {
+    this.service = todolist;
+    this.obs = todolist.observable;
     this.startdate = new Date();
-    this.inputdate = inputdate;
   }
 
   ngOnInit(): void {
   }
 
-  get dateSelect():any{
-    console.log(this.inputdate.nativeElement);
-    return "ok";
-  }  
-
-  datechange(event:Event){
-    console.log(event);
+  onDateChange(value:any) {        
+    console.log(new Date(value));
+    this.selectedDateChange.emit(new Date(value));
   }
+
 
 }

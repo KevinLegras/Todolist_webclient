@@ -1,3 +1,3 @@
-  <input #matInput class="input_date_picker" [min]="startdate" [matDatepicker]="DatePicker">
-  <mat-datepicker-toggle matSuffix [for]="DatePicker" ></mat-datepicker-toggle>
+  <input #matInput class="input_date_picker" [min]="startdate" [matDatepicker]="DatePicker" (dateChange)="onDateChange($event.value);">
+  <mat-datepicker-toggle matSuffix [for]="DatePicker"></mat-datepicker-toggle>
   <mat-datepicker #DatePicker></mat-datepicker>

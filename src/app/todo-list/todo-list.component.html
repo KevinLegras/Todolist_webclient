@@ -9,8 +9,8 @@
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
       <form>
-        <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value,datepickerselect.dateSelect)" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
-        <app-date-picker  #datepickerselect class="app-date-picker"></app-date-picker>
+        <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value)" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
+        <app-date-picker (selectedDateChange)="testfonc($event)" #datepickerselect class="app-date-picker"></app-date-picker>
         <i 
         [ngClass]="{
           'isListening': voiceRecognitionService.isListening,

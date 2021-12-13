@@ -4,6 +4,7 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoItem, TodoList, TodolistService } from '../todolist.service';
 import { VoiceRecognitionService } from '../voice-recognition-service/voice-recognition.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-todo-list',
@@ -30,8 +31,8 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(newtodo:string,date:string):void{
-    console.log(date);
+  add(newtodo:string,):void{
+    console.log(newtodo);
     //this.service = this.service.append(newtodo);
   }
 
@@ -103,6 +104,10 @@ export class TodoListComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
+  }
+
+  testfonc(event:any){
+    console.log('test');
   }
 
 }
