@@ -53,6 +53,9 @@
         <li>
           <a [class.selected]="filter == 'done'" class="filterCompleted" (click)="filter='done'">Complétés</a>
         </li>
+        <li>
+          <a [class.selected]="filter == 'date'" class="filterCompleted" (click)="filter='date'">Date</a>
+        </li>
       </ul>
       <button class="clear-completed" (click)="removeChecked(listItem.items)" >Supprimer cochées</button>
     </footer>

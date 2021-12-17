@@ -46,8 +46,6 @@ export class TodoListComponent implements OnInit {
   }
 
   update(todoitem:Partial<TodoItem>,item: TodoItem){
-    console.log(item);
-    console.log(todoitem);
     this.service = this.service.update(todoitem,item);
   }
 
@@ -58,6 +56,9 @@ export class TodoListComponent implements OnInit {
   getItems(listItem:any):TodoItem[]{
     if (this.filter === 'all') {
       return listItem;
+    }
+    else if(this.filter === 'date'){
+      return listItem.sort((x:any, y:any) => +new Date(x.date) - +new Date(y.date));
     }
     return listItem.filter((item: { isDone: boolean; }) => this.filter === 'done' ? item.isDone : !item.isDone);
   }
@@ -99,7 +100,6 @@ export class TodoListComponent implements OnInit {
     }
     else{
       this.voiceRecognitionService.stop();
-      this.service = this.service.append(this.voiceRecognitionService.text);
     }
   }
 
@@ -112,8 +112,7 @@ export class TodoListComponent implements OnInit {
     this.service.newIndex(event.container.data);
   }
 
-  saveDate(date:MatDatepickerInputEvent<any,any>):void{
-    console.log(date.value);
-    this.datesave=date.value;
+  saveDate(date:any):void{
+    this.datesave=date;
   }
 }

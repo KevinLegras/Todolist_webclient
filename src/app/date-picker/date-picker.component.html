@@ -1,3 +1,10 @@
-  <input #matInput class="input_date_picker" [min]="startdate" [matDatepicker]="DatePicker" (dateChange)="dateselected.emit($event)">
-  <mat-datepicker-toggle matSuffix [for]="DatePicker"></mat-datepicker-toggle>
-  <mat-datepicker #DatePicker></mat-datepicker>
+<input #matInput 
+  class="input_date_picker" 
+  [min]="startdate" 
+  [matDatepicker]="DatePicker" 
+  [formControl]="getDateSelected()" 
+  (dateChange)="onDateSelected($event.value)"
+  >
+  <i [class.unlink]="!isSelected" (click)="resetDate(matInput)" class='fas fa-unlink unlinkdate'></i>
+<mat-datepicker-toggle matSuffix [for]="DatePicker" class="datepicker" [class.datepicker]="!isSelected" ></mat-datepicker-toggle>
+<mat-datepicker #DatePicker></mat-datepicker>

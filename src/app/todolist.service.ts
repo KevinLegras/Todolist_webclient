@@ -31,7 +31,6 @@ export class TodolistService {
   }
 
   append(...labels: Readonly<string[]>): this {
-    console.log(...labels)
     const L: TodoList = this.subj.getValue();
     this.subj.next( {
       ...L,
