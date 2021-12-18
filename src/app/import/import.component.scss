@@ -1,0 +1,46 @@
+.closewindow{
+    float: right;
+}
+.example-full-width {
+    width: 400px;
+}
+
+.contentimport{
+    display: grid;
+    height: 180px;
+}
+
+.buttonReplace{
+    width: 150px;
+    margin-left:15px ;
+}
+.buttonAdd{
+    width: 150px;
+}
+
+.divbutton{
+    text-align: center;
+    display: inline-block;
+}
+
+.msgError{
+    color: red;
+}
+
+.display{
+    visibility: hidden;
+}
+
+.diverror{
+    color: red;
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 25%;
+
+}
+
+.skull{
+    margin-right: 10px;
+    margin-top: 4px;
+}

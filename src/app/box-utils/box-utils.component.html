@@ -1,7 +1,8 @@
 
 <div *ngIf="(obs|async) as listItem">
-<i (click)="openQRcode(listItem)" class="qrcodelogo fas fa-qrcode fa-lg"></i>
-<i (click)="openShare(listItem)" class="sharelogo fas fa-share-square fa-lg"></i>
+    <i (click)="openQRcode(listItem)" class="qrcodelogo fas fa-qrcode fa-lg"></i>
+    <i (click)="openShare(listItem)" class="sharelogo fas fa-share-square fa-lg"></i>
+    <i (click)="openImport(listItem)" class="sharelogo fas fa-share-square fa-flip-horizontal fa-lg"></i>
 </div>
 
 

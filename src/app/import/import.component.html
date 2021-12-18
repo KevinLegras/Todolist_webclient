@@ -1,0 +1,16 @@
+<i mat-button mat-dialog-close class=" closewindow fas fa-window-close fa-lg"></i>
+<h2 mat-dialog-title>IMPORT TODOLIST</h2>
+<mat-dialog-content class="mat-typography contentimport">
+    <mat-form-field class="example-full-width">
+        <mat-label>Todolist (String)</mat-label>
+        <input #inputImport matInput placeholder="{'label':'TODOLIST','items':[{'label':'test normal','isDone':false,'id':54,'date':null}]}">
+    </mat-form-field>
+    <div class="divbutton">
+        <button mat-raised-button color="primary" class="buttonAdd" (click)="addTdl()" >Add</button>
+        <button mat-raised-button color="primary" class="buttonReplace" (click)="replaceTdl()" >Replace</button>
+    </div>
+    <div class="diverror">
+        <i [class.display]="!getError" class="skull fas fa-skull fa-lg"></i>
+        <p class="msgError"> {{jsonError}}</p>
+    </div>
+</mat-dialog-content>

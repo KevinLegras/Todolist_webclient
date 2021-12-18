@@ -59,7 +59,21 @@ export class TodolistService {
     return this;
   }
 
-  newIndex(items:Readonly<TodoItem[]>){
+  appendNewItem(date:Date | null,done:boolean,...labels: Readonly<string[]>): this {
+    const L: TodoList = this.subj.getValue();
+    this.subj.next( {
+      ...L,
+      items: [
+        ...L.items,
+        ...labels.filter( l => l !== '').map(
+            label => ({label, isDone: done, id: idItem++, date:date})
+          )
+      ]
+    } );
+    return this;
+  }
+
+  newIndex(items:Readonly<TodoItem[]>):this{
     const L = this.subj.getValue();
     const NL = {...L, items: items};
     this.subj.next( NL );
@@ -84,6 +98,11 @@ export class TodolistService {
     return this;
   }
 
+  import(tdl:TodoList){
+    this.current = tdl;
+    return this;
+  }
+
   undo(): this {
     if (this.previous.length > 0) {
       this.subj.next( this.previous[this.previous.length - 1] );
@@ -97,6 +116,8 @@ export class TodolistService {
     }
     return this;
   }
+
+
 
   private managePersistency() {
     const str = localStorage.getItem('TDL_L3_MIAGE');
@@ -138,7 +159,6 @@ export class TodolistService {
       }
     } );
   }
-
 }
 
 export function tdlToString(tdl: TodoList): string {
@@ -150,3 +170,5 @@ export function strToTdl(str: string): TodoList {
   idItem = L.items.reduce( (id, item) => id <= item.id ? item.id + 1 : id, 0);
   return L;
 }
+
+

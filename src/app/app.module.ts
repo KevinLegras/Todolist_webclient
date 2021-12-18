@@ -23,6 +23,7 @@ import { QrcodeComponent } from './qrcode/qrcode.component';
 import { BoxUtilsComponent } from './box-utils/box-utils.component';
 import { ShareComponent } from './share/share.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ImportComponent } from './import/import.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     QrcodeComponent,
     BoxUtilsComponent,
     ShareComponent,
+    ImportComponent,
   ],
   imports: [
     BrowserModule,

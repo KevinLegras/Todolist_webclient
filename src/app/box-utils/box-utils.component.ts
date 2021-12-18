@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { ImportComponent } from '../import/import.component';
 import { QrcodeComponent } from '../qrcode/qrcode.component';
 import { ShareComponent } from '../share/share.component';
 import { TodoList, TodolistService } from '../todolist.service';
@@ -39,10 +40,18 @@ export class BoxUtilsComponent implements OnInit {
   }
 
   openShare(listitem:TodoList) {
-    const dialogRef = this.dialog.open(ShareComponent);
+    this.dialog.open(ShareComponent, {
+      data: {
+        todoliststring: tdlToString(listitem),
+      },
+    });
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+  openImport(listitem:TodoList) {
+    this.dialog.open(ImportComponent, {
+      data: {
+        todoliststring: tdlToString(listitem),
+      },
     });
   }
 
