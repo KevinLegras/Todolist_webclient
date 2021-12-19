@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ImportComponent } from '../import/import.component';
 import { QrcodeComponent } from '../qrcode/qrcode.component';
-import { ShareComponent } from '../share/share.component';
 import { TodoList, TodolistService } from '../todolist.service';
 
 import {tdlToString} from '../todolist.service';
@@ -33,14 +32,6 @@ export class BoxUtilsComponent implements OnInit {
 
   openQRcode(listitem:TodoList) {
     this.dialog.open(QrcodeComponent, {
-      data: {
-        todoliststring: tdlToString(listitem),
-      },
-    });
-  }
-
-  openShare(listitem:TodoList) {
-    this.dialog.open(ShareComponent, {
       data: {
         todoliststring: tdlToString(listitem),
       },
