@@ -18,6 +18,7 @@ export class ImportComponent implements OnInit {
   obs: Observable<TodoList>;
   jsonError :string = "";
   booljsonerror:boolean = false;
+  typemsg:boolean = true;
 
   constructor(todolist:TodolistService) {
     this.service = todolist;
@@ -29,35 +30,43 @@ export class ImportComponent implements OnInit {
 
   replaceTdl(){
     this.jsonError = ""
-    this.booljsonerror = false;
     try{
       let tdl = strToTdl(this.stringtodolist.nativeElement.value);
       this.service.newIndex(tdl.items);
+      this.typemsg = true;
+      this.jsonError = "DONE"
+
     }
     catch{
       this.jsonError = "ERROR WITH JSON SENT"
       this.booljsonerror = true;
+      this.typemsg = false;
     }
   }
 
   addTdl(){
     this.jsonError = ""
-    this.booljsonerror = false;
     try {
       let tdl = strToTdl(this.stringtodolist.nativeElement.value);
       for(let item of tdl.items){
         this.service = this.service.appendNewItem(item.date,item.isDone,item.label)
       }
-
+      this.jsonError = "DONE"
+      this.typemsg = true;
     }
     catch{
       this.jsonError = "ERROR WITH JSON SENT";
       this.booljsonerror = true;
+      this.typemsg = false;
     }
   }
 
   get getError(){
     return this.booljsonerror;
+  }
+
+  get getTypeMsg(){
+    return this.typemsg;
   }
 
 

@@ -200,6 +200,10 @@ body {
   opacity: 0;
 }
 
+i{
+  cursor: pointer;
+}
+
 .todo-list li .toggle + label {
   /*
     Firefox requires `#` to be escaped - https://bugzilla.mozilla.org/show_bug.cgi?id=922433

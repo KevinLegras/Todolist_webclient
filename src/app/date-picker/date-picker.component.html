@@ -5,6 +5,6 @@
   [formControl]="getDateSelected()" 
   (dateChange)="onDateSelected($event.value)"
   >
-  <i [class.unlink]="!isSelected" (click)="resetDate(matInput)" class='fas fa-unlink unlinkdate'></i>
+  <i [class.unlink]="!isSelected" (click)="resetDate(matInput)" class=" unlinkdate fa fa-chain-broken fa-2" aria-hidden="true" ></i>
 <mat-datepicker-toggle matSuffix [for]="DatePicker" class="datepicker" [class.datepicker]="!isSelected" ></mat-datepicker-toggle>
 <mat-datepicker #DatePicker></mat-datepicker>

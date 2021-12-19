@@ -27,17 +27,19 @@
     color: red;
 }
 
+.msg{
+    color:green;
+}
+
 .display{
     visibility: hidden;
 }
 
 .diverror{
-    color: red;
     display: flex;
     text-align: center;
     margin-top: 20px;
     margin-left: 25%;
-
 }
 
 .skull{

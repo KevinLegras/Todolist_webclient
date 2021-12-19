@@ -1,4 +1,4 @@
-<i mat-button mat-dialog-close class=" closewindow fas fa-window-close fa-lg"></i>
+<i mat-button mat-dialog-close class="closewindow fa fa-window-close fa-2" aria-hidden="true"></i>
 <h2 mat-dialog-title>IMPORT TODOLIST</h2>
 <mat-dialog-content class="mat-typography contentimport">
     <mat-form-field class="example-full-width">
@@ -9,8 +9,8 @@
         <button mat-raised-button color="primary" class="buttonAdd" (click)="addTdl()" >Add</button>
         <button mat-raised-button color="primary" class="buttonReplace" (click)="replaceTdl()" >Replace</button>
     </div>
-    <div class="diverror">
-        <i [class.display]="!getError" class="skull fas fa-skull fa-lg"></i>
-        <p class="msgError"> {{jsonError}}</p>
+    <div class="diverror" [ngClass]="{'msgError': !getTypeMsg,'msg':getTypeMsg }"dfg>
+        <i [class.display]="!getError" class="skull fa fa-exclamation-circle fa-2" aria-hidden="true"></i>
+        <p >{{jsonError}}</p>
     </div>
 </mat-dialog-content>

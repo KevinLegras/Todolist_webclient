@@ -1,8 +1,8 @@
 
-<div *ngIf="(obs|async) as listItem">
-    <i (click)="openQRcode(listItem)" class="qrcodelogo fas fa-qrcode fa-lg"></i>
-    <i (click)="openShare(listItem)" class="sharelogo fas fa-share-square fa-lg"></i>
-    <i (click)="openImport(listItem)" class="sharelogo fas fa-share-square fa-flip-horizontal fa-lg"></i>
+<div class="divboxutils" *ngIf="(obs|async) as listItem">
+    <i (click)="openQRcode(listItem)" class="qrcodelogo fa fa-qrcode fa-2" aria-hidden="true"></i>
+    <i (click)="openShare(listItem)" class="sharelogo fa fa-share-square-o fa-2" aria-hidden="true"></i>
+    <i (click)="openImport(listItem)" class="sharelogo fa fa-share-square-o fa-flip-horizontal fa-2" aria-hidden="true"></i>
 </div>
 
 

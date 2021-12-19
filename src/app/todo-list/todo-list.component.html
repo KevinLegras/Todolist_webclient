@@ -4,9 +4,9 @@
           {{listItem.label}}
       </h1> 
       <div class="divheader">
-        <i (click)="undoRedo('Undo')" class="undo fas fa-undo-alt fa-lg"></i>
-        <i (click)="deleteAll(listItem.items)" class="fas fa-trash-alt fa-lg deleteAll"></i>
-        <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
+        <i (click)="undoRedo('Undo')" class="undo fa fa-repeat fa-2" aria-hidden="true"></i>
+        <i (click)="deleteAll(listItem.items)" class="deleteAll fa fa-trash" aria-hidden="true"></i>
+        <i (click)="undoRedo('redo')" class="redo fa fa-undo" aria-hidden="true"></i>
       </div>
       <form>
         <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value)" placeholder="Que faire?" autofocus #newTodoInput value="{{voice.text}}"/>
