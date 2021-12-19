@@ -16,16 +16,13 @@ export class TodoListComponent implements OnInit {
 
   service: TodolistService;
   obs: Observable<TodoList>;
-  voiceRecognitionService : VoiceRecognitionService;
   filter: string;
   datesave:any;
 
-  constructor(todolist:TodolistService,voiceRecognition:VoiceRecognitionService) {
+  constructor(todolist:TodolistService) {
     this.service = todolist;
     this.obs = todolist.observable;
     this.filter = 'all';
-    this.voiceRecognitionService = voiceRecognition;
-    this.voiceRecognitionService.init();
    }
 
   ngOnInit(): void {
@@ -93,15 +90,6 @@ export class TodoListComponent implements OnInit {
     listItem.forEach((item:TodoItem) => { this.delete(item) });
   }
 
-  VoiceRecognition(){
-    if(!this.voiceRecognitionService.isListening){
-      this.voiceRecognitionService.text = "";
-      this.voiceRecognitionService.start();
-    }
-    else{
-      this.voiceRecognitionService.stop();
-    }
-  }
 
   onDrop(event: CdkDragDrop<TodoItem []>){
     moveItemInArray(
@@ -109,7 +97,9 @@ export class TodoListComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    this.service.newIndex(event.container.data);
+    if(this.filter === 'all'){
+      this.service.newIndex(event.container.data);
+    }
   }
 
   saveDate(date:any):void{

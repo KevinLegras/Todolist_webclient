@@ -1,8 +1,9 @@
 <i mat-button mat-dialog-close class=" closewindow fas fa-window-close fa-lg"></i>
 <h2 mat-dialog-title>QRCODE</h2>
 <mat-dialog-content class="mat-typography">
-  <p>Export your TODOLIST and save a copy of your items</p>
+  <p class="textinfo" >Export your TODOLIST and save a copy of your items</p>
   <qrcode class="qrcodecanevas" #qrcode [qrdata]="listitemtostring" [width]="256" [errorCorrectionLevel]="'L'"></qrcode>
+  <p class="textinfo">Copy your TODOLIST</p>
   <button mat-fab color="primary" class="buttoncopy" [cdkCopyToClipboard]="listitemtostring">
     <i class="fas fa-copy fa-lg"></i>
   </button>

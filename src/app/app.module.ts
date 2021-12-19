@@ -24,6 +24,7 @@ import { BoxUtilsComponent } from './box-utils/box-utils.component';
 import { ShareComponent } from './share/share.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ImportComponent } from './import/import.component';
+import { VoiceComponent } from './voice/voice.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ImportComponent } from './import/import.component';
     BoxUtilsComponent,
     ShareComponent,
     ImportComponent,
+    VoiceComponent,
   ],
   imports: [
     BrowserModule,

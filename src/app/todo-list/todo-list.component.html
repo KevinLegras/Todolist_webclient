@@ -9,18 +9,10 @@
         <i (click)="undoRedo('redo')" class="redo fas fa-redo-alt fa-lg"></i>
       </div>
       <form>
-        <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value)" placeholder="Que faire?" autofocus #newTodoInput value="{{voiceRecognitionService.text}}"/>
+        <input name="newTodoInput" class="new-todo" (keyup.enter)="add(newTodoInput.value)" placeholder="Que faire?" autofocus #newTodoInput value="{{voice.text}}"/>
         <app-date-picker (dateselected)="saveDate($event)" #datepickerselect class="app-date-picker"></app-date-picker>
-        <i 
-        [ngClass]="{
-          'isListening': voiceRecognitionService.isListening,
-          'isNotListening': !voiceRecognitionService.isListening
-        }"
-        (click)="VoiceRecognition()" 
-        class="fas fa-microphone fa-lg microstart">
-      </i>
+        <app-voice #voice></app-voice>
       </form>
-     
     </header>
     <section class="main">
       <input  class="toggle-all" type="checkbox" [ngModel]="toggleAll(listItem.items)" name="toggleAll"/>
