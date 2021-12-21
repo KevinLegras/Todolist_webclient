@@ -2,39 +2,56 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
 # HOW TO INSTALL THE PROJECT
 
+Open a CMD/Terminal console and follow the step below.
+
+**Clone the project :** 
+```
+$ git clone https://example.com
+```
+
+**Go into the project downloaded :**
+```
+$ cd Todolist_webclient/
+```
+
+**Install all the dependencies/libraries :**
+```
+$ npm install
+```
+
+**Start the serveur :**
+```
+$ npm start
+```
+
+Now you are ready to use the TodoList. Go to <http://localhost:4200/>
+
+# MORE THINGS ABOUT ANGULAR PROJECT
+
+Here some usefull command for an angular project
+
+**Create a component :** 
+```
+$ ./node_modules/@angular/cli/bin/ng generate component xxx_nameComponent_xxx -c OnPush
+```
+
+**Install a new library :**
+```
+$ npm install xxx_library_xxx
+```
+
+if you are using Visual Studio Code you can dowload the extension **Debugger for Chrome**. It will help you to follow step by step your action.
 
 
-# MY TODOLIST
-
-<img src="IMG/Todolist.png" alt="My TodoList"/>
-
+# TODOLIST
+<p align="center" width="100%">
+    <img src="IMG/todolist.png" alt="My TodoList"/>
+<p>
+<p align="center" width="100%">
 This is an example of my TodoList . 
+<p>
 
 ## Functionality
 
@@ -193,9 +210,9 @@ i imported the library **font-awesome** for all my icons on the project <https:/
 
 ***
 
+# AUTHOR 
 
+**Legras Kevin**
 
-
-
-
-
+- <a href="https://github.com/KevinLegras">GitHub/KevinLegras</a>
+- <a href="https://www.linkedin.com/in/kevin-legras-058815194/">LinkedIn/KevinLegras</a>
