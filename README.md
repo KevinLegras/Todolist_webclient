@@ -45,9 +45,9 @@ $ npm install xxx_library_xxx
 if you are using Visual Studio Code you can dowload the extension **Debugger for Chrome**. It will help you to follow step by step your action.
 
 
-# TODOLIST
+# TODOLIST V.1.0
 <p align="center" width="100%">
-    <img src="IMG/todolist.png" alt="My TodoList"/>
+    <img src="IMG/todolist.png" style="border: 1px solid black;" alt="My TodoList"/>
 <p>
 <p align="center" width="100%">
 This is an example of my TodoList . 
@@ -63,7 +63,7 @@ My Todolist includes all the basic fucntionalities and the functions below.
 
 This function will erases the last change done to the document, reverting it to an older state.
 
-<img src="IMG/undo.png" alt="Undo"/> 
+<img src="IMG/undo.png" width="50" height="50" style="border: 1px solid black;" alt="Undo"/> 
 
 This button will perform the undo action.
 
@@ -71,7 +71,7 @@ This button will perform the undo action.
 
 This function will reverses the undo or advances the buffer to a more recent state.
 
-<img src="IMG/redo.png" alt="Redo"/> 
+<img src="IMG/redo.png" width="50" height="50" style="border: 1px solid black;" alt="Redo"/> 
 
 This button will perform the redo action.
 
@@ -80,7 +80,7 @@ This button will perform the redo action.
 
 This function will delete all your items from your TodoList.
 
-<img src="IMG/trashall.png" alt="trashall"/> 
+<img src="IMG/trashall.png" width="50" height="50" style="border: 1px solid black;" alt="trashall"/> 
 
 This button will perform the removeAll action.
 
@@ -95,11 +95,11 @@ You can easily move an item from the TodoList to reorder them as you wish.
 
 This function will automatically set all the items to done or not done.
 
-<img src="IMG/selectAll.png" alt="selectALl"/> 
+<img src="IMG/selectAll.png" width="50" height="50" style="border: 1px solid black;" alt="selectALl"/> 
 
 When the button is on this state all the item will be set as done. 
 
-<img src="IMG/selectAllAct.png" alt="selectALlAct"/> 
+<img src="IMG/selectAllAct.png" width="50" height="50" style="border: 1px solid black;" alt="selectALlAct"/> 
 
 When the button is on this state all the item will be set as not done. 
 
@@ -109,7 +109,7 @@ When the button is on this state all the item will be set as not done.
 
 Multiple functions to filter or sort your TodoList.
 
-<img src="IMG/filter.png" alt="filters"/> 
+<img src="IMG/filter.png" height="50" style="border: 1px solid black;" alt="filters"/> 
  
 - Tous : Display all the items 
 - Actifs : Display only the items still active
@@ -121,11 +121,11 @@ Multiple functions to filter or sort your TodoList.
 
 This function will translate spoken words into text. The voice button color will change when he is recording or not.
 
-<img src="IMG/microred.png" alt="RedMic"/> 
+<img src="IMG/microred.png" width="50" height="50"  style="border: 1px solid black;" alt="RedMic"/> 
 
 Your computer is not recording
  
-<img src="IMG/microrgreen.png" alt="GreenMic"/> 
+<img src="IMG/microrgreen.png" width="50" height="50" style="border: 1px solid black;" alt="GreenMic"/> 
 
 Your computer is recording
 
@@ -138,17 +138,17 @@ I impleted a **voice-recognition-service** found on internet <https://codeburst.
 
 This function will able the user to set a date to an item.
 
-<img src="IMG/calendar.png" alt="Calendar"/> 
+<img src="IMG/calendar.png" width="50" height="50" style="border: 1px solid black;" alt="Calendar"/> 
 
 This button calendar will display a calendar.
 
-<img src="IMG/datepicker.png" alt="datepicker"/> 
+<img src="IMG/datepicker.png"  style="border: 1px solid black;" alt="datepicker"/> 
 
 You are not allowed to set a past date to an item. 
 
 Once you select a date, the button calendar color will change and also the unlink button 
 
-<img src="IMG/unlinkshow.png" alt="unlink"/>
+<img src="IMG/unlinkshow.png" width="50" height="50" style="border: 1px solid black;" alt="unlink"/>
 
 Click on this button to unset the date.
 
@@ -170,11 +170,11 @@ I got a lot of issues when i tried to add in the header a function to clear the 
 
 This function will display a QRCode to get a copy of your TodoList.
 
-<img src="IMG/qrcodelogo.png" alt="qrcodelogo"/>
+<img src="IMG/qrcodelogo.png" width="50" height="50" style="border: 1px solid black;" alt="qrcodelogo"/>
 
 This button will open a popin and display the QRcode
 
-<img src="IMG/QRcodeModal.png" alt="qrcodeModal"/>
+<img src="IMG/QRcodeModal.png" style="border: 1px solid black;" alt="qrcodeModal"/>
 
 You can scan the qrcode and get the Todolist on your device or directly get copy of it
 
@@ -190,11 +190,11 @@ I also used the library **angular/material/dialog** <https://material.angular.io
 
 This function will allow you to import a TodoList from another one.
 
-<img src="IMG/importlogo.png" alt="importlogo"/>
+<img src="IMG/importlogo.png" width="50" height="50" style="border: 1px solid black;" alt="importlogo"/>
 
 This button will open the popin to import a TodoList
 
-<img src="IMG/importModal1.png" alt="importModal"/>
+<img src="IMG/importModal1.png" style="border: 1px solid black;" alt="importModal"/>
 
 You can add or replace your current TodoList with the json provided. An error message will be display if there was an error during the import.
 
