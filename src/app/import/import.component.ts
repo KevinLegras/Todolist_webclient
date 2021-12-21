@@ -33,14 +33,8 @@ export class ImportComponent implements OnInit {
     try{
       let tdl = strToTdl(this.stringtodolist.nativeElement.value);
       for(let item of tdl.items){
-        if(item.date == null || item.label == null || item.id == null || item.isDone == null){
+        if(item.label == null || item.id == null || item.isDone == null){
           error = true;
-        }
-        else{
-          let date = new Date(item.date);
-          if(isNaN(date.getTime())){
-            error = true;
-          }
         }
       }
       if(!error){
